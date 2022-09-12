@@ -2,3 +2,7 @@ venv/
 __pycache__/
 .env
 vocab1.txt
+def_not_found.txt
+out.txt
+test1.txt
+test2.txt
