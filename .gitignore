@@ -2,4 +2,3 @@ venv/
 __pycache__/
 .env
 vocab1.txt
-test_json.txt
