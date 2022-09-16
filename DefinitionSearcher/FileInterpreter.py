@@ -1,0 +1,2 @@
+class FileInterpreter:
+    pass
