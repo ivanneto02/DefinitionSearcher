@@ -41,13 +41,11 @@ class FileInterpreter:
                     break
                 else: 
                     self.outputfile = input("Output file: ")
-        
-        print("Input file is", self.inputfile)
-        print("Output file is", self.outputfile)
 
         with open(self.inputfile) as f: 
             lines = [line.strip() for line in f.readlines()]
 
-        self.words = lines 
+        self.words = lines
+        print(self.words[:10])
 
 

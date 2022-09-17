@@ -8,7 +8,6 @@ from config import *
 
 def main(argv):
     language = 'en'
-    word_id = 'dog'
 
     inputfile = ""
     outputfile = ""
@@ -33,17 +32,22 @@ def main(argv):
 
     interpreter = FileInterpreter(inputfile, outputfile)
 
-    
+    searcher = DefSearcher( # grab list of words and search
+        language=language,
+        words=interpreter.words,
+        API_BASEURL=API_BASEURL,
+        API_ID=API_ID,
+        API_KEY=API_KEY
+    )
+    searcher.search()
 
-    # url = f"{API_BASEURL}/entries/{language}/{word_id}"
-
-    # r = requests.get(url, headers = {'app_id': API_ID, 'app_key': API_KEY})
-
-    # json_output = json.loads(r.text)
-
-    # print(json_output)
-
-    # print("Definition:", json_output["results"]["lexicalEntries"][""])
+    output = AnkiOutput(
+        output_file=outputfile,
+        json_out=searcher.json_list,
+        max_phrases=5,
+        max_syn=10
+    )
+    output.output()
 
 if __name__ == "__main__":
     # main(sys.argv)
